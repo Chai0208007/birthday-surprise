@@ -110,6 +110,9 @@
 </head>
 <body>
 
+    <audio id="birthdaySong" src="Perfect.mp3" preload="auto"></audio>
+
+
     <div class="prompt" id="prompt">
         <h1>I have a special message for you...</h1>
         <button id="revealButton">Click me!</button>
@@ -119,34 +122,41 @@
         
         <h1>Happy 19th Birthday, Mukti!</h1>
         
-       <p>Happy 19th Birthday! I wanted to make something a little special for you, something just for you.</p>
+        <p>Happy 19th Birthday! I wanted to make something a little special for you, something just for you.</p>
         <p>It's been amazing getting to know you, and I hope your day is as bright and lovely as your smile.</p> 
         <p>Wishing you all the happiness in the world. You deserve it! 🥳</p>
         
         <div class="from">
             <p>~ Chaitanya</p>
         </div>
-        </div>
+    </div>
 
     <canvas id="confetti-canvas"></canvas>
 
     <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
 
     <script>
-        // Wait for the whole page to load before running the script
+        // Wait for the whole page to load
         document.addEventListener('DOMContentLoaded', () => {
 
-            // Get the elements from the HTML
+            // Get all the elements
             const revealButton = document.getElementById('revealButton');
             const prompt = document.getElementById('prompt');
             const birthdayCard = document.getElementById('birthdayCard');
             const canvas = document.getElementById('confetti-canvas');
-
-            // Initialize the confetti library
             const jsConfetti = new JSConfetti({ canvas });
+
+            // --- NEW ---
+            // Get the audio element
+            const birthdaySong = document.getElementById('birthdaySong');
 
             // This function runs when the button is clicked
             function showBirthdayMessage() {
+                
+                // --- NEW ---
+                // Play the song!
+                birthdaySong.play();
+
                 // Hide the initial prompt
                 prompt.style.display = 'none';
                 
@@ -175,8 +185,4 @@
         });
     </script>
 </body>
-
 </html>
-
-
-
